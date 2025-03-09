@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 さんに行っていただいたの2024年11月11日オンラインパーソナルレッスンの要約ができました。
 こちらからどうぞ
+=======
+さんに行っていただいたの2024年11月11日オンラインパーソナルレッスンの要約ができました。
+こちらからどうぞ
+>>>>>>> refs/remotes/origin/main
 https://as.underwater.jp/post/767989016114118656/?utm_source=instagram&utm_medium=social&utm_campaign=story

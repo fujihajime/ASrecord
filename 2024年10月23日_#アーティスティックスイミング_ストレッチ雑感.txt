@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 2024年10月23日 #アーティスティックスイミング ストレッチ雑感
 風邪の引き始めのような水洟が出だしたので、Natsumi先生のストレッチと、オガトレさんの寝込み後ストレッチをやってみた
 https://youtu.be/0Cmr2aqOXWA?si=WkKVtxECqYWWqbWk
+=======
+2024年10月23日 #アーティスティックスイミング ストレッチ雑感
+風邪の引き始めのような水洟が出だしたので、Natsumi先生のストレッチと、オガトレさんの寝込み後ストレッチをやってみた
+https://youtu.be/0Cmr2aqOXWA?si=WkKVtxECqYWWqbWk
+>>>>>>> refs/remotes/origin/main
 これで快方に向かうと良いな
