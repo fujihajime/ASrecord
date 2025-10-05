@@ -1,4 +1,6 @@
 /scripts
 /PADFlows
-/.*
+/.gitignore
+/.obsidian
+/.vscode
 /pyscripts
