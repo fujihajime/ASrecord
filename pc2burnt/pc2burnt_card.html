@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥 PC2台焼いたエンジニア | Burned 2 PCs Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --deep-sea-blue: #1B365D;
+            --burn-orange: #F18F01;
+            --aqua-blue: #89CDF1;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans JP', Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, var(--deep-sea-blue) 0%, #0d1b2a 100%);
+            color: var(--aqua-blue);
+            line-height: 1.7;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* ヘッダー */
+        .header {
+            background: rgba(241, 143, 1, 0.1);
+            border: 2px solid var(--burn-orange);
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px rgba(241, 143, 1, 0.2);
+        }
+
+        .header h1 {
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            color: var(--burn-orange);
+            margin-bottom: 10px;
+            font-weight: 800;
+            text-shadow: 0 0 20px rgba(241, 143, 1, 0.5);
+        }
+
+        .header .subtitle {
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            color: var(--aqua-blue);
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .header .tagline {
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            color: #cce7f7;
+            font-weight: 500;
+        }
+
+        /* エピソード */
+        .episode {
+            background: rgba(137, 205, 241, 0.08);
+            border-left: 4px solid var(--aqua-blue);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .episode h2 {
+            color: var(--burn-orange);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .episode p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .episode .ja {
+            color: var(--aqua-blue);
+        }
+
+        .episode .en {
+            color: #a0d2eb;
+            font-style: italic;
+            font-size: 0.95rem;
+        }
+
+        /* 専門分野カード */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .expertise-card {
+            background: rgba(27, 54, 93, 0.6);
+            border: 1px solid rgba(137, 205, 241, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .expertise-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--burn-orange), var(--aqua-blue));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--burn-orange);
+            box-shadow: 0 8px 24px rgba(241, 143, 1, 0.3);
+        }
+
+        .expertise-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .expertise-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .expertise-card h3 {
+            color: var(--burn-orange);
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .expertise-card .subtitle-card {
+            color: #cce7f7;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .expertise-card .description {
+            color: var(--aqua-blue);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .expertise-card .description-en {
+            color: #a0d2eb;
+            font-size: 0.85rem;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        /* 連絡先カード */
+        .contact-card {
+            background: linear-gradient(135deg, rgba(241, 143, 1, 0.15) 0%, rgba(137, 205, 241, 0.15) 100%);
+            border: 2px solid var(--burn-orange);
+            border-radius: 16px;
+            padding: 35px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        .contact-card h2 {
+            color: var(--burn-orange);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.1rem;
+            color: var(--aqua-blue);
+        }
+
+        .contact-item a {
+            color: var(--aqua-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--burn-orange);
+        }
+
+        .qr-placeholder {
+            width: 180px;
+            height: 180px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 3px solid var(--burn-orange);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+            font-size: 0.9rem;
+            color: var(--deep-sea-blue);
+            font-weight: 600;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .vcard-btn, .portfolio-btn {
+            display: inline-block;
+            background: var(--burn-orange);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(241, 143, 1, 0.4);
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .portfolio-btn {
+            background: var(--deep-sea-blue);
+            border: 2px solid var(--aqua-blue);
+            box-shadow: 0 4px 12px rgba(137, 205, 241, 0.4);
+        }
+
+        .vcard-btn:hover, .portfolio-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(241, 143, 1, 0.6);
+        }
+
+        .vcard-btn:hover {
+            background: #d97d01;
+        }
+
+        .portfolio-btn:hover {
+            background: #2a4a7a;
+            border-color: var(--burn-orange);
+            box-shadow: 0 6px 20px rgba(137, 205, 241, 0.6);
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .episode {
+                padding: 20px;
+            }
+
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-card {
+                padding: 25px 20px;
+            }
+
+            .vcard-btn, .portfolio-btn {
+                padding: 12px 20px;
+                font-size: 0.95rem;
+                width: 100%;
+            }
+        }
+
+        /* アニメーション */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header, .episode, .expertise-card, .contact-card {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .expertise-card:nth-child(1) { animation-delay: 0.1s; }
+        .expertise-card:nth-child(2) { animation-delay: 0.2s; }
+        .expertise-card:nth-child(3) { animation-delay: 0.3s; }
+        .expertise-card:nth-child(4) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ヘッダー -->
+        <header class="header">
+            <h1>🔥 PC2台焼いたエンジニア</h1>
+            <p class="subtitle">Burned 2 PCs Engineer</p>
+            <p class="tagline">市民開発者 全社TOP5 | 35年の技術史</p>
+        </header>
+
+        <!-- エピソード -->
+        <section class="episode">
+            <h2>💡 The Story Behind</h2>
+            <p class="ja">
+                2023年、AI・3DCG開発に没頭し、2台のPCを連続で焼き切った伝説のエンジニア。<br>
+                その執念が認められ、全社市民開発者TOP5に選出。
+            </p>
+            <p class="en">
+                Burned 2 PCs while diving deep into AI/3DCG development in 2023.<br>
+                This passion led to recognition as company-wide Top 5 Citizen Developer.
+            </p>
+        </section>
+
+        <!-- 専門分野カード -->
+        <section class="expertise-grid">
+            <!-- カード1: 営業現場バックオフィス × デジタル変革 -->
+            <div class="expertise-card">
+                <div class="icon">📦</div>
+                <h3>営業現場バックオフィス × デジタル変革</h3>
+                <p class="subtitle-card">Sales & Back Office × DX</p>
+                <p class="description">
+                    営業現場・バックオフィスの実務経験からDXへ。現場起点の課題解決型開発
+                </p>
+                <p class="description-en">
+                    Sales & back office to DX transformation: Field-driven problem solving
+                </p>
+            </div>
+
+            <!-- カード2: 市民開発 / Power Platform -->
+            <div class="expertise-card">
+                <div class="icon">💻</div>
+                <h3>市民開発 / Power Platform</h3>
+                <p class="subtitle-card">Citizen Developer</p>
+                <p class="description">
+                    全社TOP5市民開発者。業務の困りごとをAI・コードに翻訳し自動化
+                </p>
+                <p class="description-en">
+                    Top 5 Citizen Developer: Translating business challenges into automated solutions
+                </p>
+            </div>
+
+            <!-- カード3: AI × IoT システム統合 -->
+            <div class="expertise-card">
+                <div class="icon">🤖</div>
+                <h3>AI × IoT システム統合</h3>
+                <p class="subtitle-card">System Integration</p>
+                <p class="description">
+                    音声UI・スマートホーム自作。PC2台焼いた執念でゼロから実装・2年以上稼働
+                </p>
+                <p class="description-en">
+                    Voice UI & Smart Home from scratch: 2+ years proven operational stability
+                </p>
+            </div>
+
+            <!-- カード4: 電気・電子技術基盤 -->
+            <div class="expertise-card">
+                <div class="icon">⚡</div>
+                <h3>電気・電子技術基盤</h3>
+                <p class="subtitle-card">Electrical Engineering</p>
+                <p class="description">
+                    電気科卒・アマチュア無線従事者。35年の無線・音響・自動化技術実践
+                </p>
+                <p class="description-en">
+                    Electrical engineering foundation: 35 years of wireless, audio, and automation expertise
+                </p>
+            </div>
+        </section>
+
+        <!-- 連絡先カード -->
+        <section class="contact-card">
+            <h2>📇 連絡先 / Contact</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <a href="mailto:kato@pc2burnt.jp"><span class="__cf_email__" data-cfemail="bed5dfcad1fecedd8cdccbccd0ca90d4ce">kato＠pc2burnt.jp</span></a>
+                </div>
+                <a href="https://www.linkedin.com/in/加藤圭一-pc2burnt-jp"><img src="linkedin_qr.png" alt="LinkedIn QR Code" style="width: 180px; height: 180px; border: 3px solid var(--burn-orange); border-radius: 12px; margin: 20px auto; display: block;"></a>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; margin-top: 15px;">
+                    <a href="#" class="vcard-btn" onclick="downloadVCard(); return false;">📥 vCard ダウンロード</a>
+                    <a href="https://ekraejeq.gensparkspace.com/" class="portfolio-btn" target="_blank">📖 51歳の技術自叙伝<br><span style="font-size: 0.85em;">Tech Autobiography at 51</span></a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        function downloadVCard() {
+            const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:加藤圭一 (PC2台焼いたエンジニア)
+N:加藤;圭一;;;
+EMAIL;TYPE=INTERNET:kato@pc2burnt.jp
+TITLE:Burned 2 PCs Engineer - Top 5 Citizen Developer
+NOTE:2023年、AI・3DCG開発に没頭し、2台のPCを連続で焼き切った伝説のエンジニア。その執念が認められ、全社市民開発者TOP5に選出。\\n\\n専門分野:\\n- 営業現場バックオフィス×デジタル変革\\n- 市民開発/Power Platform\\n- AI×IoTシステム統合\\n- 電気・電子技術基盤（35年の実践）
+URL:https://pc2burnt.jp
+URL;TYPE=LinkedIn:https://www.linkedin.com/in/加藤圭一-pc2burnt-jp
+END:VCARD`;
+
+            const blob = new Blob([vcard], { type: 'text/vcard' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'pc2burnt_kato.vcf';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
